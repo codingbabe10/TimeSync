@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from "react-icons/io";
 
 export default function MiniCalendar() {
 
@@ -18,7 +19,6 @@ export default function MiniCalendar() {
     });
   };
 
-  // Function to get the number of days in the current month
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
@@ -31,52 +31,52 @@ export default function MiniCalendar() {
     return new Date(year, month, 1).getDay();
   };
 
- // Function to get number of days in the current month
   const daysInMonth = Array.from({ length: getDaysInMonth(currentDate) }, (_, index) => index + 1).length;
 
     const emptyCells = Array.from({ length: getFirstDayOfWeek(currentDate) }, (_, index) => index);
 
     const formattedDate = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
 
-    console.log(emptyCells)
-
     return (
         <section className="">
-             <h2>{formattedDate}</h2>
-            <button onClick={prevMonth}>Previous Month</button>
-            <button onClick={nextMonth}>Next Month</button>
+            <div className="custom-flex-row justify-between items-center">
+                <IoIosArrowDropleftCircle onClick={prevMonth} className="text-4xl text-primary-green-500" />
+                <span className="text-bold">{formattedDate}</span>
+                 <IoIosArrowDroprightCircle onClick={nextMonth} className="text-4xl text-primary-green-500" />
+            </div>
+
             <table className="w-full custom-flex-col">
                 <thead>
                     <tr className="
-                    bg-primary-grey-500 text-primary-grey-600
+                     text-primary-grey-600
                         custom-flex-row items-center w-full
                     ">
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] rounded-tl-custom-default border-[#C0C0C0] text-[#969696]">Sun</th>
+                        className="w-[14.2857142857%]">Su</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0]">Mon</th>
+                        className="w-[14.2857142857%]">Mo</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0] text-[#969696]">Tue</th>
+                        className="w-[14.2857142857%]">Tu</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0]">Wed</th>
+                        className="w-[14.2857142857%]">We</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0] text-[#969696]">Thu</th>
+                        className="w-[14.2857142857%]">Th</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0]">Fri</th>
+                        className="w-[14.2857142857%]">Fr</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0] rounded-tr-custom-default  text-[#969696]">Sat</th>
+                        className="w-[14.2857142857%]">Sa</th>
                     </tr>
                 </thead>
                 <tbody className="w-full text-primary-grey-700">
                      <tr className="custom-flex-row">
                         {emptyCells.length > 0 && emptyCells.map((_, index) => (
-                            <td className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]" key={`empty-padStart-${index}`}></td>
+                            <td className="mini-calendarDay" key={`empty-padStart-${index}`}></td>
                         ))}
                         {
                             emptyCells.length < 7 && Array.from({ length: 7 - emptyCells.length }).map((_, index)=>{
                                 return(
                                     <td
-                                        className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]"
+                                        className="mini-calendarDay"
                                         key={`empty-nonempty-${index}`}
                                     >
                                         <p className="">{index + 1}</p>
@@ -85,30 +85,26 @@ export default function MiniCalendar() {
                             })
                         }
                     </tr>
-                    {
-                        Array.from({length:  emptyCells.length < 6 ? 4:5 }).map((_, row)=>{
+                    {Array.from({length:  emptyCells.length < 6 ? 4:5 }).map((_, row)=>{
                             return (
                                 <tr key={row} className="custom-flex-row">
                                         {Array.from({ length: 7 }).map((_, index) => {
                                             const day = 6 - emptyCells.length + (index + 2 + row) + (6 * row);
                                             return (
                                                 day <= daysInMonth ? (
-                                                    <td className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]" key={index}>
+                                                    <td className="mini-calendarDay" key={index}>
                                                         <p className="">
                                                         {day}
                                                         </p>
                                                     </td>
                                                 ) : (
-                                                    <td className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]" key={`empty-padEnd-${index}`}></td>
+                                                    <td className="mini-calendarDay" key={`empty-padEnd-${index}`}></td>
                                                 )
-                                                    
                                             );
                                         })}
-
                                 </tr>
                             )
-                        })
-                    }
+                        })}
                 </tbody>
             </table>
         </section>

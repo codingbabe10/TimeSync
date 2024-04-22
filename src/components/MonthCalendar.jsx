@@ -18,7 +18,6 @@ export default function MonthCalendar() {
     });
   };
 
-  // Function to get the number of days in the current month
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
@@ -31,7 +30,6 @@ export default function MonthCalendar() {
     return new Date(year, month, 1).getDay();
   };
 
- // Function to get number of days in the current month
   const daysInMonth = Array.from({ length: getDaysInMonth(currentDate) }, (_, index) => index + 1).length;
 
     const emptyCells = Array.from({ length: getFirstDayOfWeek(currentDate) }, (_, index) => index);
@@ -42,42 +40,41 @@ export default function MonthCalendar() {
 
     return (
         <section className="">
-            {/* <span>Monthly Calendar</span> */}
              <h2>{formattedDate}</h2>
             <button onClick={prevMonth}>Previous Month</button>
             <button onClick={nextMonth}>Next Month</button>
             <table className="w-full custom-flex-col">
                 <thead>
                     <tr className="
-                    bg-primary-grey-500 text-primary-grey-600
+                     text-primary-grey-600
                         custom-flex-row items-center w-full
                     ">
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] rounded-tl-custom-default border-[#C0C0C0] text-[#969696]">Sun</th>
+                        className="calendarHeaderDay rounded-tl-custom-default border-[#C0C0C0] text-[#969696]">Sun</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0]">Mon</th>
+                        className="calendarHeaderDay border-[#C0C0C0]">Mon</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0] text-[#969696]">Tue</th>
+                        className="calendarHeaderDay border-[#C0C0C0] text-[#969696]">Tue</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0]">Wed</th>
+                        className="calendarHeaderDay border-[#C0C0C0]">Wed</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0] text-[#969696]">Thu</th>
+                        className="calendarHeaderDay border-[#C0C0C0] text-[#969696]">Thu</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0]">Fri</th>
+                        className="calendarHeaderDay border-[#C0C0C0]">Fri</th>
                         <th 
-                        className="w-[14.2857142857%] p-2 border-x-[.5px] border-t-[.5px] border-[#C0C0C0] rounded-tr-custom-default  text-[#969696]">Sat</th>
+                        className="calendarHeaderDay border-[#C0C0C0] rounded-tr-custom-default  text-[#969696]">Sat</th>
                     </tr>
                 </thead>
                 <tbody className="w-full text-primary-grey-700">
                      <tr className="custom-flex-row">
                         {emptyCells.length > 0 && emptyCells.map((_, index) => (
-                            <td className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]" key={`empty-padStart-${index}`}></td>
+                            <td className="month-calendarDay" key={`empty-padStart-${index}`}></td>
                         ))}
                         {
                             emptyCells.length < 7 && Array.from({ length: 7 - emptyCells.length }).map((_, index)=>{
                                 return(
                                     <td
-                                        className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]"
+                                        className="month-calendarDay"
                                         key={`empty-nonempty-${index}`}
                                     >
                                         <p className="">{index + 1}</p>
@@ -94,13 +91,13 @@ export default function MonthCalendar() {
                                             const day = 6 - emptyCells.length + (index + 2 + row) + (6 * row);
                                             return (
                                                 day <= daysInMonth ? (
-                                                    <td className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]" key={index}>
+                                                    <td className="month-calendarDay" key={index}>
                                                         <p className="">
                                                         {day}
                                                         </p>
                                                     </td>
                                                 ) : (
-                                                    <td className="w-[14.2857142857%] h-[200px]  p-2  border-[#E8E8E8] border-[.5px]" key={`empty-padEnd-${index}`}></td>
+                                                    <td className="month-calendarDay" key={`empty-padEnd-${index}`}></td>
                                                 )
                                                     
                                             );
@@ -110,14 +107,6 @@ export default function MonthCalendar() {
                             )
                         })
                     }
-                    {/* <tr>
-                        {emptyCells.map((_, index) => (
-                        <td key={`empty-${index}`}></td>
-                        ))}
-                        {daysInMonth.map(day => (
-                        <td key={day}>{day}</td>
-                        ))}
-                    </tr> */}
                 </tbody>
             </table>
         </section>
