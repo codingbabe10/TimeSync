@@ -5,7 +5,7 @@
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
 }
 
@@ -19,5 +19,18 @@
 @layer base {
   html {
     font-family: "Montserrat", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  
+  .custom-flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .custom-flex-col {
+    display: flex;
+    flex-direction: col;
   }
 }
