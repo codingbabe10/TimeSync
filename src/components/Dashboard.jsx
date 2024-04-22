@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { CiSettings } from "react-icons/ci";
 import { PiBellLight } from "react-icons/pi";
 import { SlArrowDown } from "react-icons/sl";
+import CalendarHeader from "./CalenderHeader";
 
 export default function Dashboard() {
 
+    const [calendarView, setCalendarView] = useState("monthly");
+
     return (
-        <main className="m-8">
+        <div className="m-8">
+
+            {/* TOP OF PAGE AND NAVBAR/TOOLBAR */}
             <div className="
             custom-flex-row justify-between items-center
             ">
@@ -32,6 +38,10 @@ export default function Dashboard() {
                     </div>
                 </nav>
             </div>
-        </main>
+
+            <main className="mt-8">
+                <CalendarHeader view={calendarView} toggleCalendarView={(view)=>setCalendarView(view)} />
+            </main>
+        </div>
     )
 }
