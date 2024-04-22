@@ -3,6 +3,7 @@ import { CiSettings } from "react-icons/ci";
 import { PiBellLight } from "react-icons/pi";
 import { SlArrowDown } from "react-icons/sl";
 import CalendarHeader from "./CalenderHeader";
+import MonthCalendar from "./MonthCalendar";
 
 export default function Dashboard() {
 
@@ -40,7 +41,11 @@ export default function Dashboard() {
             </div>
 
             <main className="mt-8">
-                <CalendarHeader view={calendarView} toggleCalendarView={(view)=>setCalendarView(view)} />
+                <CalendarHeader view={calendarView} toggleCalendarView={(view) => setCalendarView(view)} />
+                
+                {calendarView === "monthly" && <MonthCalendar/>}
+                {/* {calendarView === "week" && <WeekCalendar/>}
+                {calendarView === "day" && <DayCalendar/>} */}
             </main>
         </div>
     )

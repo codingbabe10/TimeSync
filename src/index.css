@@ -31,6 +31,6 @@
 
   .custom-flex-col {
     display: flex;
-    flex-direction: col;
+    flex-direction: column;
   }
 }
