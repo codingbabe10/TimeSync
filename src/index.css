@@ -46,7 +46,8 @@
     @apply w-[14.2857142857%]  p-2  border-[#E8E8E8] border-[.5px] h-[150px];
   }
 
-  input[type=text] {
+  input[type=text],
+  .custom-text-input {
     @apply outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2  w-full
   }
 
