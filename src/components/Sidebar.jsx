@@ -10,7 +10,7 @@ export default function Sidebar() {
                 <span className="text-custom-logo">TimeSync</span>
             </div>
 
-            <div className="p-8 custom-flex-col  justify-center items-center">
+            <div className="p-8 custom-flex-col  justify-center">
                 <button className="
                 py-3 px-7 text-white bg-primary-green-500 rounded-custom-default
                 custom-flex-row items-center justify-center gap-2
@@ -20,7 +20,15 @@ export default function Sidebar() {
                 </button>
 
                 <MiniCalendar />
+
+                <div className="">
+                    <h2 className="text-custom-md font-bold">Collaborators</h2>
+                    <div className="">
+                        <input type="text" placeholder="Search People" className="bg-primary-grey-400 text-primary-grey-500" />
+                    </div>
+                </div>
             </div>
+
 
         </section>
     )
