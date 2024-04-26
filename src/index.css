@@ -45,4 +45,12 @@
    .month-calendarDay {
     @apply w-[14.2857142857%]  p-2  border-[#E8E8E8] border-[.5px] h-[150px];
   }
+
+  input[type=text] {
+    @apply outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2  w-full
+  }
+
+  .custom-button {
+    @apply bg-primary-green-500 text-white w-3/4 h-14 rounded-custom-default
+  }
 }
