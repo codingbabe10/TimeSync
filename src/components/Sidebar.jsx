@@ -46,8 +46,8 @@ export default function Sidebar() {
     return (
         <section className="p-8 w-[30%] shadow-2xl min-h-[100vh] relative">
             <div className="custom-flex-row justify-normal gap-2">
-                <img src="/logo.png" alt="logo" className="w-6" />
-                <span className="text-custom-logo">TimeSync</span>
+                <img src="/TimeSync-Logo-full.png" alt="logo" className="w-32" />
+                {/* <span className="text-custom-logo">TimeSync</span> */}
             </div>
 
             <div className="p-8 custom-flex-col  justify-center gap-6">
