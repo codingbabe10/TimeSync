@@ -11,7 +11,7 @@ export default function Sidebar() {
 
     const [collaborators, setCollaborators] = useState([
         {
-            name: "Elijah Gargifefgregghfhgjfhgbnuirhgbevg jrehtgujca",
+            name: "Elijah Garcia",
             position: "Influencer",
             imgUrl: "https://i.pravatar.cc/300"
         },
@@ -102,6 +102,13 @@ export default function Sidebar() {
                             )
                         })}
                     </div>
+                    
+                    <button className="
+                    custom-flex-row justify-center items-center gap-1
+                    w-full h-14 mx-auto rounded-custom-default bg-white border-2 border-primary-grey-700
+                    ">
+                        <BsPlus className="text-3xl" /> Add collaborators
+                    </button>
                 </div>
             </div>
         </section>
