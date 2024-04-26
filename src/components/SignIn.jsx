@@ -82,7 +82,7 @@ export default function SignIn() {
                             />
                         </div>
 
-                        <button className="bg-primary-green-500 text-white w-3/4 h-14 rounded-custom-default mt-9">Sign in</button>
+                        <button className="bg-primary-green-500 text-white w-3/4 h-14 rounded-custom-default">Sign in</button>
 
                     </form>
                 </div>
