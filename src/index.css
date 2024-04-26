@@ -43,6 +43,6 @@
   }
 
    .month-calendarDay {
-    @apply w-[14.2857142857%]  p-2  border-[#E8E8E8] border-[.5px] h-[200px];
+    @apply w-[14.2857142857%]  p-2  border-[#E8E8E8] border-[.5px] h-[150px];
   }
 }
