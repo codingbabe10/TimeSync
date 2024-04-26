@@ -38,7 +38,7 @@ export default function MiniCalendar() {
     const formattedDate = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
 
     return (
-        <section className="">
+        <section className="border-2 rounded-custom-default p-4">
             <div className="custom-flex-row justify-between items-center">
                 <IoIosArrowDropleftCircle onClick={prevMonth} className="text-4xl text-primary-green-500" />
                 <span className="text-bold">{formattedDate}</span>
