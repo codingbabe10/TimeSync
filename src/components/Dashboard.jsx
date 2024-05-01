@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { CiSettings } from "react-icons/ci";
 import { PiBellLight } from "react-icons/pi";
-import { SlArrowDown } from "react-icons/sl";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import ProfilePopup from "./ProfilePopup";
 import Sidebar from "./Sidebar";
 import CalendarHeader from "./CalenderHeader";
 import MonthCalendar from "./MonthCalendar";
@@ -10,6 +11,12 @@ import MonthCalendar from "./MonthCalendar";
 export default function Dashboard() {
 
     const [calendarView, setCalendarView] = useState("monthly");
+    const [isProfilePopupActive, setIsProfilePopupActive] = useState(false);
+
+
+    function toggleProfilePopup() {
+        setIsProfilePopupActive(prev => !prev);
+    }
 
     return (
         <div className="custom-flex-row">
@@ -34,13 +41,16 @@ export default function Dashboard() {
 
                         <div className="w-0.5 h-[35px] bg-primary-grey-400"></div>
 
-                        <div className="
-                        custom-flex-row justify-center items-center gap-4 
+                        <div onClick={ toggleProfilePopup} className="
+                        relative  custom-flex-row justify-center items-center gap-4 
                         border-[1px] border-primary-grey-500 rounded-custom-default py-2 px-4
+                        cursor-pointer
                         ">
                             <div className="rounded-full bg-primary-grey-600 w-10 h-10"></div>
                             <span>Luna</span>
-                            <SlArrowDown className="text-primary-grey-600 text-base" />
+                            {isProfilePopupActive ? <SlArrowUp className="text-primary-grey-600 text-base" />
+                                : <SlArrowDown className="text-primary-grey-600 text-base" />}
+                            {isProfilePopupActive && <ProfilePopup toggleProfilePopup={toggleProfilePopup} />}
                         </div>
                     </nav>
                 </div>
