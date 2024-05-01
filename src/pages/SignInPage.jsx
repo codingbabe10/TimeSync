@@ -1,23 +1,49 @@
 import { CiSettings } from "react-icons/ci";
 import { PiBellLight } from "react-icons/pi";
 import { SlArrowDown } from "react-icons/sl";
-// import React from 'react';
+import { createUserWithEmailAndPassword,signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../services/firebaseConfig.js";
 import SignIn from '../components/SignIn';
-// import Dashboard from '../components/Dashboard';
 import Sidebar from "../components/Sidebar";
 import MonthCalendar from "../components/MonthCalendar";
 
 import './SignInPage.css'
 
 export default function SignInPage() {
+
+  const signIn = async (email, password) => {
+    try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    } catch (err){
+      console.error(err);
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    try {
+    await signInWithPopup(auth,googleProvider);
+    } catch (err){
+      console.error(err);
+    }
+  };
+
+  // const logOut = async () => {
+  //   try {
+  //   await signOut(auth);
+  //   } catch (err){
+  //     console.error(err);
+  //   }
+  // };
+
   return (
     <>
       {/* MODAL */}
-    <SignIn />
+      <SignIn signIn={signIn} signInWithGoogle={signInWithGoogle} />
+      
       {/* OVERLAY */}
-     <div className="fixed z-[1] left-0 top-0 w-full h-full overflow-auto bg-black bg-opacity-[.60]"></div>
+      <div className="fixed z-[1] left-0 top-0 w-full h-full overflow-auto bg-black bg-opacity-[.60]"></div>
+      
     <div className="custom-flex-row ">
-     
         {/* DAHSBOARD BACKGROUND */}
             <Sidebar />
 

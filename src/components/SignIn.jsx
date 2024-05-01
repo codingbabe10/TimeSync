@@ -1,32 +1,14 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useState  } from "react"
 
-export default function SignIn() {
+export default function SignIn(props) {
 
-    const [user, setUser] = useState({ username: '', email: '', password: '', timezone: ""  })
-    const navigate = useNavigate();
-
-    async function registerUser(){
-        const res = await fetch('http://127.0.0.1:5000/register',{
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
-        })
-        if(res.ok){
-            const data = await res.json()
-            console.log(data,"==========");
-            navigate('/login', {replace: true});
-         }
-        //  return redirect("/login")
-       
-    }
+    const { signIn, signInWithGoogle, } = props;
+    
+    const [credentials, setCredentials] = useState({ username: '', email: '', password: '', timezone: ""  })
 
     function handleSubmit(e){
         e.preventDefault()
-        registerUser()
-        console.log(user, 'form submitted');
-        
-        setUser({username:'',email:'',password:''});
+        signIn(credentials.email, credentials.password);
     }
 
     return (
@@ -46,19 +28,19 @@ export default function SignIn() {
 
                     <form onSubmit={handleSubmit} className="custom-flex-col justify-center items-center gap-5 w-full">
 
-                        <div className=" w-3/4">
+                        {/* <div className=" w-3/4">
                             <label htmlFor="username" className="font-bold">Username</label>
-                            <input type="text" name='username' value={user.username}
-                                onChange={(e) => setUser((prevState) => ({ ...prevState, username: e.target.value }))}
+                            <input type="text" name='username' value={credentials.username}
+                                onChange={(e) => setCredentials((prevState) => ({ ...prevState, username: e.target.value }))}
                                 className="outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2 w-full"
                                 required
                             />
-                        </div>
+                        </div> */}
 
                         <div className="w-3/4">
                             <label htmlFor="email" className="font-bold">Email</label>
-                            <input type="text" name='email' value={user.email}
-                                onChange={(e) => setUser((prevState) => ({ ...prevState, email: e.target.value }))}
+                            <input type="text" name='email' value={credentials.emai}
+                                onChange={(e) => setCredentials((prevState) => ({ ...prevState, email: e.target.value }))}
                                 className="outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2  w-full"
                                 required
                             />
@@ -66,21 +48,21 @@ export default function SignIn() {
 
                         <div className="w-3/4">
                             <label htmlFor="password" className="font-bold">Password</label>
-                            <input type="text" name='password' value={user.password}
-                                onChange={(e) => setUser((prevState) => ({ ...prevState, password: e.target.value }))}
+                            <input type="text" name='password' value={credentials.password}
+                                onChange={(e) => setCredentials((prevState) => ({ ...prevState, password: e.target.value }))}
                                 className="outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2  w-full"
                                 required
                             />
                         </div>
 
-                        <div className="w-3/4">
+                        {/* <div className="w-3/4">
                             <label htmlFor="timezone" className="font-bold">Time Zone</label>
-                            <input type="text" name='timezone' value={user.timezone}
-                                onChange={(e) => setUser((prevState) => ({ ...prevState, timezone: e.target.value }))}
+                            <input type="text" name='timezone' value={credentials.timezone}
+                                onChange={(e) => setCredentials((prevState) => ({ ...prevState, timezone: e.target.value }))}
                                 className="outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2  w-full"
                                 required
                             />
-                        </div>
+                        </div> */}
 
                         <button className="custom-button w-3/4 h-14">Sign in</button>
 
