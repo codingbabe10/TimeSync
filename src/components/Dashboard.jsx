@@ -23,7 +23,6 @@ export default function Dashboard() {
             <Sidebar />
 
             <div className="m-8 w-full">
-
                 {/* TOP OF PAGE AND NAVBAR/TOOLBAR */}
                 <div className="
                 custom-flex-row justify-between items-center

@@ -1,13 +1,14 @@
 import { createContext, useState } from "react";
-import { getAuth, onAuthStateChanged  } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../services/firebaseConfig";
 
 const Context = createContext(null);
 
 function UserContext({ children }) {
 
+
     const [user, setUser] = useState(null);
 
-    const auth = getAuth();
 
     onAuthStateChanged(auth, (foundUser) => {
     if (foundUser) {
