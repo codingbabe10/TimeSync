@@ -2,13 +2,13 @@ import { useState  } from "react"
 
 export default function SignIn(props) {
 
-    const { signIn, signInWithGoogle, } = props;
+    const { signUp, signInWithGoogle, } = props;
     
     const [credentials, setCredentials] = useState({ username: '', email: '', password: '', timezone: ""  })
 
     function handleSubmit(e){
         e.preventDefault()
-        signIn(credentials.email, credentials.password);
+        signUp(credentials.email, credentials.password);
     }
 
     return (

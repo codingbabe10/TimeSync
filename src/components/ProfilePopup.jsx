@@ -1,7 +1,11 @@
-import { SlArrowDown, SlArrowRight  } from "react-icons/sl";
+import { SlArrowDown, SlArrowRight } from "react-icons/sl";
+import { useContext } from "react";
+import { Context } from "../context/UserContext";
 
+export default function ProfilePopup({ toggleProfilePopup }) {
 
-export default function ProfilePopup({toggleProfilePopup}) {
+    const { logOut } = useContext(Context);
+    
 
     return (
         <div className="
@@ -25,7 +29,7 @@ export default function ProfilePopup({toggleProfilePopup}) {
                 </div>
             </div>
 
-            <button className="bg-primary-green-500 text-white w-2/5 h-10 rounded-custom-default">Sign out</button>
+            <button onClick={logOut} className="bg-primary-green-500 text-white w-2/5 h-10 rounded-custom-default">Sign out</button>
         </div>
     )
 }

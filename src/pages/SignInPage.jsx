@@ -1,8 +1,6 @@
 import { CiSettings } from "react-icons/ci";
 import { PiBellLight } from "react-icons/pi";
 import { SlArrowDown } from "react-icons/sl";
-import { createUserWithEmailAndPassword,signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../services/firebaseConfig.js";
 import SignIn from '../components/SignIn';
 import Sidebar from "../components/Sidebar";
 import MonthCalendar from "../components/MonthCalendar";
@@ -11,30 +9,10 @@ import './SignInPage.css'
 
 export default function SignInPage() {
 
-  const signIn = async (email, password) => {
-    try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    } catch (err){
-      console.error(err);
-    }
-  };
 
-  const signInWithGoogle = async () => {
-    try {
-    await signInWithPopup(auth,googleProvider);
-    } catch (err){
-      console.error(err);
-    }
-  };
 
-  // const logOut = async () => {
-  //   try {
-  //   await signOut(auth);
-  //   } catch (err){
-  //     console.error(err);
-  //   }
-  // };
-
+ 
+  
   return (
     <>
       {/* MODAL */}
