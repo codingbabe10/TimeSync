@@ -6,6 +6,8 @@ import ProfilePopup from "./ProfilePopup";
 import Sidebar from "./Sidebar";
 import CalendarHeader from "./CalenderHeader";
 import MonthCalendar from "./MonthCalendar";
+import DayCalendar from "./DayCalendar";
+import WeekCalendar from "./WeekCalendar";
 // import WeekCalendar from "./WeekCalendar";
 
 export default function Dashboard() {
@@ -58,8 +60,8 @@ export default function Dashboard() {
                     <CalendarHeader view={calendarView} toggleCalendarView={(view) => setCalendarView(view)} />
                     
                     {calendarView === "monthly" && <MonthCalendar/>}
-                    {/* {calendarView === "weekly" && <WeekCalendar/>} */}
-                    {/* calendarView === "daily" && <DayCalendar/>} */}
+                    {calendarView === "weekly" && <WeekCalendar/>} 
+                    {calendarView === "daily" && <DayCalendar/>} 
                 </main>
                 </div>
             </div>
