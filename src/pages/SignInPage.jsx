@@ -16,7 +16,7 @@ export default function SignInPage() {
   return (
     <>
       {/* MODAL */}
-      <SignIn signIn={signIn} signInWithGoogle={signInWithGoogle} />
+      <SignIn  />
       
       {/* OVERLAY */}
       <div className="fixed z-[1] left-0 top-0 w-full h-full overflow-auto bg-black bg-opacity-[.60]"></div>
