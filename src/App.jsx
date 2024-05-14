@@ -1,5 +1,5 @@
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -7,8 +7,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import {Context} from "./context/UserContext";
 import DashboardPage from './pages/DashboardPage.jsx';
 import './index.css'
@@ -31,10 +30,8 @@ let router = createBrowserRouter(
           />
           <Route path='register' element={<RegisterPage />} />
           <Route path='/signup' element={<SignUpPage />} />
-          <Route element={<ProtectedRoutes />} >
             <Route path="/dashboard" element={<DashboardPage />} />
           </Route>
-        </Route>
       )
     );
 
