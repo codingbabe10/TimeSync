@@ -39,7 +39,7 @@ export default function SignIn(props) {
 
                         <div className="w-3/4">
                             <label htmlFor="email" className="font-bold">Email</label>
-                            <input type="text" name='email' value={credentials.emai}
+                            <input type="text" name='email' value={credentials.email}
                                 onChange={(e) => setCredentials((prevState) => ({ ...prevState, email: e.target.value }))}
                                 className="outline outline-primary-grey-500 rounded-custom-default outline-2 px-4 py-2  w-full"
                                 required

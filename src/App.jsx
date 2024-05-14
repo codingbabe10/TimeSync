@@ -14,7 +14,8 @@ import DashboardPage from './pages/DashboardPage.jsx';
 import './index.css'
 import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
-import ProtectedRoutes from "./components/ProtectedRoutes.jsx";
+import ProtectedRoutes from "./components/ProtectedRoutes.jsx"
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   const { user } = useContext(Context);
@@ -28,6 +29,7 @@ let router = createBrowserRouter(
               : <Navigate to={"/dashboard"} />
             }
           />
+          <Route path='register' element={<RegisterPage />} />
           <Route path='/signup' element={<SignUpPage />} />
           <Route element={<ProtectedRoutes />} >
             <Route path="/dashboard" element={<DashboardPage />} />
