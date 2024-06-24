@@ -14,7 +14,7 @@ export default function CalendarHeader(props) {
 
     return (
         <div className="custom-flex-row justify-between">
-            <span className="font-bold text-custom-lg">April 2024</span>
+            <span className="font-bold text-custom-lg"></span>
 
             <div className="
             custom-flex-row p-2

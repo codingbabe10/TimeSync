@@ -33,7 +33,7 @@ export default function Dashboard() {
                     <span className="
                     bg-secondary-blue-500 py-2.5 px-6 rounded-custom-full
                     ">
-                        Project: Eternal Elegance Promotion
+                        Project Name: 
                     </span>
 
                     <nav className="custom-flex-row items-center gap-6">
@@ -49,7 +49,7 @@ export default function Dashboard() {
                         cursor-pointer
                         ">
                             <div className="rounded-full bg-primary-grey-600 w-10 h-10"></div>
-                            <span>Luna</span>
+                            <span>Catrina</span>
                             {isProfilePopupActive ? <SlArrowUp className="text-primary-grey-600 text-base" />
                                 : <SlArrowDown className="text-primary-grey-600 text-base" />}
                             {isProfilePopupActive && <ProfilePopup toggleProfilePopup={toggleProfilePopup} />}
